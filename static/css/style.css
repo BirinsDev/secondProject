@@ -1,0 +1,47 @@
+body {
+  background: radial-gradient(circle, rgb(124, 51, 114) 4%, rgb(31, 38, 147) 100%);
+  margin: auto;
+  padding: auto;
+  max-width: 1200px;
+  text-align: center;
+}
+
+h1, h2, p, a {
+  color: rgb(255, 255, 255);
+  text-shadow: 2px 2px rgb(5, 0, 0);
+  text-decoration: none;
+  font-size: 2rem;
+}
+
+.controlstyle1 {
+  display: flex;
+}
+
+.controlstyle0 {
+  display: none;
+}
+
+.question {
+  width: 95%;
+  margin: auto;
+  padding: auto;
+}
+
+.questionAnswer, .avatar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: auto;
+  padding: auto;
+}
+
+.answer {
+  width: 40%;
+  padding: 2%;
+  margin: 2%;
+  background-color: rgb(23, 23, 163);
+  border-radius: 50%;
+  border: 3px solid black;
+  font-size: 2rem;
+  text-align: center;
+}/*# sourceMappingURL=style.css.map */

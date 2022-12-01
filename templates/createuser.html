@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome. Now please crete a profile</title>
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" />
+    
+</head>
+<body>
+    <div id="game" class="game">
+        <div id="avatarArea">
+            <div class="avatarImage">
+                <button class="btn4" onclick="moveBack()">Previous</button>
+                <div class="showImageArea">
+                    <h2>Avatars</h2>
+                    <div id="showAvatar"><img src="{{url_for('static', filename='img/avatar/avatar4.png')}}"/></div>
+                </div>
+                <div class="setImageArea" style="display: none;">
+                    <h2 id="avatarText"></h2>
+                    <div id="setAvatar"></div>
+                </div>
+                <button class="btn4" id="next" onclick="moveFront()">Next</button>
+            </div>
+            <div id="buttonArea">
+                <button class="btn3" id="submit" onclick="saveAvatar()">Use</button> 
+                <button class="btn3" onclick="randomAvatar()">Randomize</button><br/>
+                
+                
+            </div>
+        </div>
+  
+<div class="userNameSetting">
+   <label for="userNameData">Please Enter Your Username:</label><br/>
+   <input type="text" id="userNameData">
+   <button class="btn3" type="button" onclick="createUserName()">Save Username</button> 
+   <span id="infoUser"></span>
+</div>
+   <button class="btn1" id="startGame" onclick="startGame()">START</button>
+</div>
+
+<script src="{{ url_for('static', filename='js/createUser.js') }}"></script>
+</body>
+</html>

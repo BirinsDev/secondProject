@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <title>Question nr {{p}}</title>
+</head>
+<body>
+    <div class="avatar">
+        <div class="logo"></div>
+        <div class="username"></div>
+        <div class="bank"> <p> You got £ {{ bank }}</p></div>
+    </div>
+<div class="questionAnswer">
+    <a href="/help1/" class="answer controlstyle{{ctrl1}}">50/50</a>
+    <a href="/help2/" class="answer controlstyle{{ctrl2}}">Procentage</a>
+</div>   
+    <h2>{{extra_info}}</h2>
+   <p>Question nr: {{p}}</p>
+    <h2 class="question"> {{ question }} </h2>
+
+    <div class="questionAnswer">
+        {% for answer in answer%} 
+            <a href="/quest/?answer={{answer}}" class="answer controlstyle{{ctrl3}}">{{loop.index}} ){{ answer }}</a>  
+        {% endfor %}
+
+      <a href="/quest/?answer={{answer1}}" class="answer controlstyle{{ctrl4}}"> 1) {{ answer1 }}   <b> {{rate1}} %</b></a>
+      <a href="/quest/?answer={{answer2}}" class="answer controlstyle{{ctrl4}}"> 2) {{ answer2 }}   <b> {{rate2}} %</b></a>
+      <a href="/quest/?answer={{answer3}}" class="answer controlstyle{{ctrl4}}"> 3) {{ answer3 }}   <b> {{rate3}} %</b></a>
+      <a href="/quest/?answer={{answer4}}" class="answer controlstyle{{ctrl4}}"> 4) {{ answer4 }}   <b> {{rate4}} %</b></a>
+    </div>
+</body>
+</html>
