@@ -6,14 +6,67 @@ body {
   text-align: center;
 }
 
-h1, h2, p, a {
+h1,h2,p,a,label,button {
   color: rgb(255, 255, 255);
   text-shadow: 2px 2px rgb(5, 0, 0);
   text-decoration: none;
   font-size: 2rem;
 }
 
-.controlstyle1 {
+h1,label,.specText {
+  font-family: "Orbitron", sans-serif;
+}
+p{
+  font-family: "Jura", sans-serif;
+}
+
+input {
+  width: 40%;
+  height: auto;
+  font-size: 2rem;
+  margin: 5px;
+  padding: 0.5%;
+  border-radius: 10px;
+}
+
+button {
+  background-color: rgb(23, 23, 163);
+  border: 3px solid black;
+  border-radius: 225px;
+  padding: 1%;
+  margin: 1%;
+  box-shadow: 2px 2px rgb(5, 0, 0);
+}
+
+button > btn2 {
+  width: auto;
+}
+
+.block1 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center ;
+  justify-content: space-between 
+}
+
+.block2 {
+  display: flex;
+  flex-wrap: wrap ;
+  flex-direction: row ;
+  align-items: center ;
+  justify-content: space-between ;
+  margin: auto;
+  padding: auto;
+}
+
+.answer {
+  width: 45%;
+  height: auto;
+  padding: 1%;
+
+}
+
+.questionButton .controlstyle1 {
   display: flex;
 }
 
@@ -21,27 +74,70 @@ h1, h2, p, a {
   display: none;
 }
 
-.question {
-  width: 95%;
+.btn2 {
+  width: 50%;
+  font-family: "Merienda", cursive;
+}
+.btn,.btn1{
+  width: 50%;
+}
+.spec{
+  width: 30%;
   margin: auto;
   padding: auto;
 }
+.btn:hover {
+  background-color: orange;
+}
+.showAvatar>img{
+  width: 50%;
+}
+.btn1{
+  padding: 1px;
+}
+.btn1:hover {
+  background-color: green;
+}
 
-.questionAnswer, .avatar {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+.btnGreen {
+  background-color: green;
+}
+
+.btnOrange {
+  background-color: orange;
+}
+
+.med {
+  width: 50% !important;
+}
+
+.bigger {
+  width: 75% !important;
+}
+
+.questions {
+  font-family: "Khula", sans-serif;
+}
+.user{
+  margin-top: 5%;
+  margin-bottom: 5%;
+  padding: auto;
+}
+button > .answer {
+  font-family: "Jura", sans-serif !important;
+}
+#GameAvatar>img{
+  width: 50%;
+}
+.help{
   margin: auto;
   padding: auto;
 }
+.gameBox{
+  border: 1px solid black;
+  border-radius: 25px;
+  background-color: rgba(0, 153, 255, 0.252);
+}
 
-.answer {
-  width: 40%;
-  padding: 2%;
-  margin: 2%;
-  background-color: rgb(23, 23, 163);
-  border-radius: 50%;
-  border: 3px solid black;
-  font-size: 2rem;
-  text-align: center;
-}/*# sourceMappingURL=style.css.map */
+
+/*# sourceMappingURL=style.css.map */

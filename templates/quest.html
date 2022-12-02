@@ -4,33 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Jura:wght@300&family=Khula&family=Merienda:wght@600&family=Orbitron:wght@900&display=swap" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <title>Question nr {{p}}</title>
 </head>
-<body>
-    <div class="avatar">
-        <div class="logo"></div>
-        <div class="username"></div>
+<body onload="setUserSetting()">
+    <div class="avatar block2">
+        <div id="GameAvatar"></div>
+        <div>
+        <div id="GameUsername"></div>
         <div class="bank"> <p> You got £ {{ bank }}</p></div>
+        </div>
     </div>
-<div class="questionAnswer">
-    <a href="/help1/" class="answer controlstyle{{ctrl1}}">50/50</a>
-    <a href="/help2/" class="answer controlstyle{{ctrl2}}">Procentage</a>
-</div>   
+<div class="block1 help">
+    <a href="/help1/" class="answer controlstyle{{ctrl1}}"><button class="btn1 btn2">50 / 50</button></a>
+    <a href="/help2/" class="answer controlstyle{{ctrl2}}"><button class="btn1 btn2"> Statistic</button></a>
+</div> 
+
+
+<div class="gameBox"> 
     <h2>{{extra_info}}</h2>
-   <p>Question nr: {{p}}</p>
+   <p class="specText">Question nr: {{p}}</p>
     <h2 class="question"> {{ question }} </h2>
 
-    <div class="questionAnswer">
+    <div class="block1">
         {% for answer in answer%} 
-            <a href="/quest/?answer={{answer}}" class="answer controlstyle{{ctrl3}}">{{loop.index}} ){{ answer }}</a>  
+            <a href="/quest/?answer={{answer}}" class="answer controlstyle{{ctrl3}}"><button class="btn">{{loop.index}} ){{ answer }}</button></a>  
         {% endfor %}
-
-      <a href="/quest/?answer={{answer1}}" class="answer controlstyle{{ctrl4}}"> 1) {{ answer1 }}   <b> {{rate1}} %</b></a>
-      <a href="/quest/?answer={{answer2}}" class="answer controlstyle{{ctrl4}}"> 2) {{ answer2 }}   <b> {{rate2}} %</b></a>
-      <a href="/quest/?answer={{answer3}}" class="answer controlstyle{{ctrl4}}"> 3) {{ answer3 }}   <b> {{rate3}} %</b></a>
-      <a href="/quest/?answer={{answer4}}" class="answer controlstyle{{ctrl4}}"> 4) {{ answer4 }}   <b> {{rate4}} %</b></a>
+      <a href="/quest/?answer={{answer1}}" class="answer controlstyle{{ctrl4}}"><button class="btn"> 1) {{ answer1 }} <b> {{rate1}} %</b></button></a>
+      <a href="/quest/?answer={{answer2}}" class="answer controlstyle{{ctrl4}}"><button class="btn"> 2) {{ answer2 }} <b> {{rate2}} %</b></button></a>
+      <a href="/quest/?answer={{answer3}}" class="answer controlstyle{{ctrl4}}"><button class="btn"> 3) {{ answer3 }} <b> {{rate3}} %</b></button></a>
+      <a href="/quest/?answer={{answer4}}" class="answer controlstyle{{ctrl4}}"><button class="btn"> 4) {{ answer4 }} <b> {{rate4}} %</b></button></a>
     </div>
+</div> 
+    <script src="{{ url_for('static', filename='js/user.js') }}"></script>
 </body>
 </html>

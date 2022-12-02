@@ -1,8 +1,9 @@
-# Student Name: Inars Birins, Student Nr:40504590 Edinburgh Napier Univerity #
+
 # git add .
 # git commit -m "."
 # git push
-from flask import Flask,  render_template, request, session                  
+
+from flask import Flask,  render_template, request, session                    
 import json, random, math
 app = Flask(__name__)
 app.secret_key='NewGame2022'
@@ -16,6 +17,7 @@ numberEasy=len(data["easy"])-1
 numberMedium=len(data["medium"])-1
 numberHard=len(data["hard"])-1
 moneyPoint=0
+
 
 @app.route('/')
 def index():
@@ -225,19 +227,10 @@ firstStage={
             }
             }
 
-
-@app.route('/info/')
-def instruction():
-    return render_template('instruction.html')
-
-@app.route('/about/')
-def about():
-    return render_template('about.html')
-
-
 @app.route('/create/')
 def createUser():
     return render_template('createuser.html')
+
 
 @app.route('/help2/')
 def help_rate():
@@ -279,28 +272,6 @@ def help_50to50():
         session['help50to50']=helpFirst
         return render_template('quest.html', question=firstStage[str(p)]["question"], answer=firstStage[str(p)]["answer"],p=p,bank=bank,ctrl1=0,ctrl2=0,ctrl3=1,ctrl4=0,extra_info="Soory but you lose your 50/50 chance")
 
-
-
-
-@app.route('/fail/')
-def gameover():
-    p=int(session['question'])
-    answer=(session['answer'])
-    correct=firstStage[str(p)]["correctText"]
-    bank=int(session['bank'])
-    if p>5:
-        if p>10:
-            bank=100000
-            session['bank']=bank
-            return render_template('result.html')
-        bank=5000
-        session['bank']=bank
-        return render_template('fail.html', answer=answer, question=firstStage[str(p)]["question"], bank=bank, correct=correct)
-    else:
-        bank=0
-        session['bank']=bank
-        return render_template('fail.html', answer=answer, question=firstStage[str(p)]["question"], bank=bank, correct=correct)
-
 @app.route('/quest/')
 def question():
     p=int(session['question'])
@@ -309,8 +280,6 @@ def question():
     help2=(session['rate'])
 
     answer= request.args.get(str('answer'), None)
-    (session['answer'])=answer
-
     if answer is not None:
         correct=firstStage[str(p)]["correctText"]
         print(" A number p is "+ str(p)+" Check addresse "+ str(firstStage[str(p)])+" correct " + str(correct) + " answer " + str(answer))
@@ -324,18 +293,23 @@ def question():
                 bank=bank*2
                 session['bank']=bank
             if p > len(firstStage):
-                return render_template('grace.html',bank=bank)
+                return render_template('About.html')
             else:
-                if str(answer) == str(correct):
-                    return render_template('result.html', question=firstStage[str(p-1)]["question"], correct=correct, bank=bank, p=p-1,ctrl5=1,ctrl6=0)
-                else:
-                    return render_template('result.html', question=firstStage[str(p-1)]["question"], answer=answer, correct=correct,p=p-1,ctrl5=0,ctrl6=1)
-
+                return render_template('quest.html', question=firstStage[str(p)]["question"], answer=firstStage[str(p)]["answer"], bank=bank, p=p,ctrl1=help1,ctrl2=help2,ctrl3=1,ctrl4=0, rate=0)
         else:
-            if str(answer) == str(correct):
-                 return render_template('result.html', question=firstStage[str(p-1)]["question"], correct=correct,p=p-1,ctrl5=1,ctrl6=0)
+            if p>5:
+                if p>10:
+                    bank=100000
+                    session['bank']=bank
+                    return render_template('fail.html', answer=answer, question=firstStage[str(p)]["question"], bank=bank, correct=correct)
+
+                bank=5000
+                session['bank']=bank
+                return render_template('fail.html', answer=answer, question=firstStage[str(p)]["question"], bank=bank, correct=correct)
             else:
-                return render_template('result.html', question=firstStage[str(p-1)]["question"], answer=answer, correct=correct,p=p-1,ctrl5=0,ctrl6=1)
+                bank=0
+                session['bank']=bank
+                return render_template('fail.html', answer=answer, question=firstStage[str(p)]["question"], bank=bank, correct=correct)
     else:
         return render_template('quest.html', question=firstStage[str(p)]["question"], answer=firstStage[str(p)]["answer"],p=p,bank=bank,ctrl1=help1,ctrl2=help2,ctrl3=1,ctrl4=0, rate=0)
 
@@ -346,6 +320,4 @@ def success():
     
 
 if __name__ == "__main__":
- app.run(host='0.0.0.0',)
-
- # Student Name: Inars Birins, Student Nr:40504590 Edinburgh Napier Univerity #
+ app.run(host='0.0.0.0', debug=True)

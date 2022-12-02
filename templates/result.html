@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Jura:wght@300&family=Khula&family=Merienda:wght@600&family=Orbitron:wght@900&display=swap" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" />
+    <title>Question nr {{p}}</title>
+</head>
+<body>
+    <div class="avatar">
+        <div id="GameAvatar"></div>
+        <div id="GameUsername"></div>
+        <div class="bank"> <p> You got £ {{ bank }}</p></div>
+    </div>
+
+   <p>Question nr: {{p}}</p>
+    <h2 class="question"> {{ question }} </h2>
+    <div class="controlstyle{{ctrl5}}"> 
+    
+       <button class="btnGreen answer">{{ correct }}</button>
+       
+   
+    <div>
+        <a href="/quest/"><button class="btn2">Continue</button></a>
+    </div>
+    </div>
+   
+    <div class="controlstyle{{ctrl6}}">
+    
+    <button class="btnOrange answer">{{ answer }}</button>
+    <button class="btnGreen answer">{{ correct}}</button>
+     
+    
+
+    <div>
+        <a href="/fail/"><button class="btn2">See result</button></a>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='js/user.js') }}"></script>
+</body>
+</html>

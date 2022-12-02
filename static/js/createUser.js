@@ -1,16 +1,13 @@
-     /*  AVATAR CREATE SECTION Variables */
+/******* Student Name: Inars Birins, Student Nr:40504590 Edinburgh Napier Univerity *******/
+/*  AVATAR CREATE SECTION Variables */
      const avatar = ["avatar1.png","avatar2.png","avatar3.png","avatar4.png","avatar5.png","avatar6.png","avatar7.png","avatar8.png",];
      let randVal; //Randomizer variable.
      let goBack=8; // Variable for moving avatar image back
      let goNext=-1; // Variable for moving avatar image front
      let newAvatarSet; // Variable for set avatar inage which will see user on the screen
      let avatarChoise=newAvatarSet; // variable for check which avatar is right now active.
-     let userAvatarChoise=document.getElementById('setAvatar');// variable for save Avatar;  
+     let userAvatarChoise=document.getElementById("setAvatar");// variable for save Avatar;  
      let saveAvatarChoise; // Variable for save user choise.
-
-
-
-
 
 /* BEGINING USERNAME CREATE SECTION */
              //enter user name variable
@@ -26,7 +23,7 @@
                    randNameNumber3= Math.floor(Math.random()*9);
                    randNameNumber4= Math.floor(Math.random()*9);
                    systemUserName= `PlayerNr${randNameNumber1}${randNameNumber2}${randNameNumber3}${randNameNumber4}`
-                   infoText.innerHTML=`<p style="color: darkred;"> Sorry you do not enter your <b>Username</b>, 
+                   infoText.innerHTML=`<p style="color:#ff2626"> Sorry you do not enter your <b>Username</b>, 
                    a system generate for you username - <b>${systemUserName}</b>,<br/> if you want your name 
                    then please Enter again username and press Save Username. Thank you! </p> `;
                    saveUserName=systemUserName;
@@ -150,11 +147,11 @@
                 if (newAvatarSet===undefined){
                   saveAvatarChoise=avatar[3];
                   document.getElementById('avatarText').innerHTML="Your Avatar";
-                  userAvatarChoise.innerHTML=`<img src="/static/img/avatar/avatar4.png">`;
+                  document.getElementById("setAvatar").innerHTML=`<img src="/static/img/avatar/avatar4.png">`;
                 }else{
                   saveAvatarChoise=newAvatarSet;
                 document.getElementById('avatarText').innerHTML="Your Avatar";
-                userAvatarChoise.innerHTML=`<img src="{{url_for('static', filename='img/avatar/${newAvatarSet}')}}">`;
+                document.getElementById("setAvatar").innerHTML=`<img src="/static/img/avatar/${newAvatarSet}">`;
               };
              }; //End if statment
               // console.log(userAvatarChoise);
@@ -169,15 +166,18 @@ function startGame(){
   let userReady=confirm("Do you ready Start a game?");
   if(userReady=== true){
     localStorage.clear();
-    
     if(newAvatarSet===undefined){
-        saveAvatarChoise=avatarChoise;
-      };
+        saveAvatarChoise=avatar[3];
+        document.getElementById("setAvatar").innerHTML=`<img src="/static/img/avatar/avatar4.png">`;
+      }else{
+      saveAvatarChoise=newAvatarSet;
+      document.getElementById("setAvatar").innerHTML=`<img src="/static/img/avatar/${newAvatarSet}">`;
+    };
     if(saveUserName === undefined){
           createUserName();
          };// end if statment Avatar undefined. 
-    // localStorage.setItem("clientUserName",saveUserName);  
-    // localStorage.setItem("avatarImage",saveAvatarChoise);
+    localStorage.setItem("clientUserName",saveUserName);  
+    localStorage.setItem("avatarImage",saveAvatarChoise);
     // console.log("Local DATABASE information "+saveUserName+" "+backGroundColour+" "+saveAvatarChoise);
     window.location.href="/quest/";
   }else{
@@ -185,3 +185,6 @@ function startGame(){
   };
 };//if statment end.
 /******** //////  END Data Base section   //// ********/ 
+
+
+/******* Student Name: Inars Birins, Student Nr:40504590 Edinburgh Napier Univerity *******/

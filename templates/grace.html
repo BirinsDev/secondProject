@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game- I know answer!!!</title>
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Jura:wght@300&family=Khula&family=Merienda:wght@600&family=Orbitron:wght@900&display=swap" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" />
+    <title>Congratulations</title>
 </head>
-<body onload=localStorage.clear();>
-    <h1>Do you the know answer?!</h1>
-    <a href="/create/"> <button class="btn2 bigger">Hey- let's see if you can answer all the questions!!</button></a>
-    <a href="/info/"> <button class="btn2 med">Game instructions </button></a>
-    <a href="/about/"> <button class="btn2 med">About me </button></a>
+<body>
+    <h1>Congratulations, you have completed this game.</h1>
+   <p>Amazing!!! You did that. You answered all the questions. And earned {{bank}}
+    virtual pounds. Yes, virtual, what did you think that I was so rich that I could pay you such an amount!!!</p>
+    <div>
+        <a href="/"><button class="">Start Again</button></a>
+    </div>
 </body>
 </html>
