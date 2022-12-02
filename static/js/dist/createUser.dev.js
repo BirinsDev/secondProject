@@ -54,7 +54,7 @@ function createUserName() {
 ; //end function
 
 /* END USERNAME CREATE SECTION */
-/// begining randomizer function. 
+/// begining randomizer function.
 
 function randomAvatar() {
   var checkAvatar = avatar[randVal];
@@ -62,7 +62,7 @@ function randomAvatar() {
 
   if (checkAvatar === avatar[randVal]) {
     avatar[randVal += 1];
-    newAvatarSet = avatar[randVal]; //// if index is higer than avatar.length then it will create for one index lower. 
+    newAvatarSet = avatar[randVal]; //// if index is higer than avatar.length then it will create for one index lower.
 
     if (avatar[randVal] === undefined) {
       avatar[randVal -= 1];
@@ -81,14 +81,14 @@ function randomAvatar() {
 }
 
 ; /// END RANDOMIZER FUNCTION
-/// begining button PREVIOUS function. 
+/// begining button PREVIOUS function.
 
 /********************************************
 When the user presses the button "previous", the function first checks
-did the user already used the randomizer if NO then second check if the 
-user uses the "next" button. After that function starts to use a correct 
-index, which allow the user to move back from the object where he stop before. 
- ********************************************/
+did the user already used the randomizer if NO then second check if the
+user uses the "next" button. After that function starts to use a correct
+index, which allow the user to move back from the object where he stop before.
+********************************************/
 
 function moveBack() {
   if (randVal === undefined) {
@@ -124,7 +124,7 @@ function moveBack() {
     document.getElementById("showAvatar").innerHTML = "<img src=\"/static/img/avatar/".concat(newAvatarSet, "\">");
 
     if (randVal <= 0) {
-      randVal = 8;
+      randVal = 7;
       document.getElementById("showAvatar").innerHTML = "<img src=\"/static/img/avatar/".concat(newAvatarSet, "\">");
     }
 
@@ -135,14 +135,14 @@ function moveBack() {
 }
 
 ; /// End previous button function
-/// begining button NEXT function. 
+/// begining button NEXT function.
 
 /********************************************
 When the user presses the button "next", the function first checks
-did the user already used the randomizer if NO then second check if the 
-user uses the "previous" button. After that function starts to use a correct 
-index, which allow the user to move back from the object where he stop before. 
-  ********************************************/
+did the user already used the randomizer if NO then second check if the
+user uses the "previous" button. After that function starts to use a correct
+index, which allow the user to move back from the object where he stop before.
+********************************************/
 
 function moveFront() {
   if (randVal === undefined) {

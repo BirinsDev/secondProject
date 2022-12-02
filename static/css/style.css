@@ -6,7 +6,7 @@ body {
   text-align: center;
 }
 
-h1,h2,p,a,label,button {
+h1,h2,p,a,label,button, li {
   color: rgb(255, 255, 255);
   text-shadow: 2px 2px rgb(5, 0, 0);
   text-decoration: none;
@@ -16,7 +16,7 @@ h1,h2,p,a,label,button {
 h1,label,.specText {
   font-family: "Orbitron", sans-serif;
 }
-p{
+p, li{
   font-family: "Jura", sans-serif;
 }
 
@@ -139,5 +139,7 @@ button > .answer {
   background-color: rgba(0, 153, 255, 0.252);
 }
 
-
+.content{
+  padding-bottom: 10px;
+}
 /*# sourceMappingURL=style.css.map */

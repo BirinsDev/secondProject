@@ -41,106 +41,106 @@
 
 
              
-   
-      /// begining randomizer function. 
+  /// begining randomizer function.
   function randomAvatar(){
-            let checkAvatar=avatar[randVal];
-            randVal= Math.floor(Math.random()*avatar.length);
-            ///// if randomizer will create this same index, it will be add up one index higher.
-            if(checkAvatar=== avatar[randVal]){
-                avatar[randVal+=1];
-                newAvatarSet=avatar[randVal];
-                //// if index is higer than avatar.length then it will create for one index lower. 
-                  if(avatar[randVal]=== undefined){
-                    avatar[randVal-=1];
-                    newAvatarSet=avatar[randVal];
-                    document.getElementById("showAvatar").innerHTML=`<img src="/static/img/avatar/${newAvatarSet}">`;
-                    console.log(`third console.log ${avatar[randVal]}`);
-                  };
-                  document.getElementById("showAvatar").innerHTML=`<img src="/static/img/avatar/${newAvatarSet}">`; 
-            };
+    let checkAvatar=avatar[randVal];
+    randVal= Math.floor(Math.random()*avatar.length);
+    ///// if randomizer will create this same index, it will be add up one index higher.
+    if(checkAvatar=== avatar[randVal]){
+        avatar[randVal+=1];
+        newAvatarSet=avatar[randVal];
+        //// if index is higer than avatar.length then it will create for one index lower.
+          if(avatar[randVal]=== undefined){
+            avatar[randVal-=1];
             newAvatarSet=avatar[randVal];
             document.getElementById("showAvatar").innerHTML=`<img src="/static/img/avatar/${newAvatarSet}">`;
-  };/// END RANDOMIZER FUNCTION
+            console.log(`third console.log ${avatar[randVal]}`);
+          };
+          document.getElementById("showAvatar").innerHTML=`<img src="/static/img/avatar/${newAvatarSet}">`;
+    };
+    newAvatarSet=avatar[randVal];
+    document.getElementById("showAvatar").innerHTML=`<img src="/static/img/avatar/${newAvatarSet}">`;
+};/// END RANDOMIZER FUNCTION
 
-      /// begining button PREVIOUS function. 
-     /********************************************
-    When the user presses the button "previous", the function first checks
-    did the user already used the randomizer if NO then second check if the 
-    user uses the "next" button. After that function starts to use a correct 
-    index, which allow the user to move back from the object where he stop before. 
-      ********************************************/
-  function moveBack(){
-              if(randVal=== undefined){
-                  if(avatarChoise=== undefined){
-                    goBack--;
-                    newAvatarSet=avatar[goBack];
-                    document.getElementById("showAvatar").innerHTML=`<img src="/static/img/avatar/${newAvatarSet}">`;
-                       //if it is last image then next images will have last one in Array list.
-                    if(goBack<=0){
-                          goBack=8;
-                          document.getElementById("showAvatar").innerHTML=`<img src="/static/img/avatar/${newAvatarSet}">`;
-                        };// end if statment where index is less than 0
-                  }else{
-                    goBack=avatarChoise;
-                    goBack--;
-                    newAvatarSet= avatar[goBack];
-                    document.getElementById("showAvatar").innerHTML=`<img src="/static/img/avatar/${newAvatarSet}">`;
-                        if(goBack<=0){
-                          goBack=8;
-                          document.getElementById("showAvatar").innerHTML=`<img src="/static/img/avatar/${newAvatarSet}">`;
-                        };// end if statment where index is less than 0
-                  }; 
-              }else {
-                randVal--;
-                  newAvatarSet= avatar[randVal];
+/// begining button PREVIOUS function.
+/********************************************
+When the user presses the button "previous", the function first checks
+did the user already used the randomizer if NO then second check if the
+user uses the "next" button. After that function starts to use a correct
+index, which allow the user to move back from the object where he stop before.
+********************************************/
+function moveBack(){
+      if(randVal=== undefined){
+          if(avatarChoise=== undefined){
+            goBack--;
+            newAvatarSet=avatar[goBack];
+            document.getElementById("showAvatar").innerHTML=`<img src="/static/img/avatar/${newAvatarSet}">`;
+               //if it is last image then next images will have last one in Array list.
+            if(goBack<=0){
+                  goBack=8;
                   document.getElementById("showAvatar").innerHTML=`<img src="/static/img/avatar/${newAvatarSet}">`;
-                    if(randVal<=0){
-                      randVal= 8;
-                      document.getElementById("showAvatar").innerHTML=`<img src="/static/img/avatar/${newAvatarSet}">`;
-                    };
-              };
+                };// end if statment where index is less than 0
+          }else{
+            goBack=avatarChoise;
+            goBack--;
+            newAvatarSet= avatar[goBack];
+            document.getElementById("showAvatar").innerHTML=`<img src="/static/img/avatar/${newAvatarSet}">`;
+                if(goBack<=0){
+                  goBack=8;
+                  document.getElementById("showAvatar").innerHTML=`<img src="/static/img/avatar/${newAvatarSet}">`;
+                };// end if statment where index is less than 0
+          };
+      }else {
+        randVal--;
+          newAvatarSet= avatar[randVal];
+          document.getElementById("showAvatar").innerHTML=`<img src="/static/img/avatar/${newAvatarSet}">`;
+            if(randVal<=0){
+              randVal= 7;
+              document.getElementById("showAvatar").innerHTML=`<img src="/static/img/avatar/${newAvatarSet}">`;
             };
- /// End previous button function
+      };
+    };
+/// End previous button function
 
-        /// begining button NEXT function. 
-      /********************************************
-      When the user presses the button "next", the function first checks
-      did the user already used the randomizer if NO then second check if the 
-      user uses the "previous" button. After that function starts to use a correct 
-      index, which allow the user to move back from the object where he stop before. 
-        ********************************************/
- function moveFront(){
-              if(randVal=== undefined){
-                  if(avatarChoise=== undefined){
-                    goNext++;
-                    newAvatarSet=avatar[goNext];
-                    document.getElementById("showAvatar").innerHTML=`<img src="/static/img/avatar/${newAvatarSet}">`;
-                        if(goNext>=7){
-                          goNext=-1;
-                          document.getElementById("showAvatar").innerHTML=`<img src="/static/img/avatar/${newAvatarSet}">`;
-                        };
-                  }else{
-                    goNext=avatarChoise;
-                    goNext++;
-                    newAvatarSet= avatar[goNext];
-                    document.getElementById("showAvatar").innerHTML=`<img src="/static/img/avatar/${newAvatarSet}">`;
-                        if(goNext>=7){
-                          goNext=0;
-                          document.getElementById("showAvatar").innerHTML=`<img src="/static/img/avatar/${newAvatarSet}">`;
-                        };
-                  };
-              }else {
-                  randVal++;
-                  newAvatarSet= avatar[randVal];
+/// begining button NEXT function.
+/********************************************
+When the user presses the button "next", the function first checks
+did the user already used the randomizer if NO then second check if the
+user uses the "previous" button. After that function starts to use a correct
+index, which allow the user to move back from the object where he stop before.
+********************************************/
+function moveFront(){
+      if(randVal=== undefined){
+          if(avatarChoise=== undefined){
+            goNext++;
+            newAvatarSet=avatar[goNext];
+            document.getElementById("showAvatar").innerHTML=`<img src="/static/img/avatar/${newAvatarSet}">`;
+                if(goNext>=7){
+                  goNext=-1;
                   document.getElementById("showAvatar").innerHTML=`<img src="/static/img/avatar/${newAvatarSet}">`;
-                    if(randVal>=7){
-                      randVal= 0;
-                      document.getElementById("showAvatar").innerHTML=`<img src="/static/img/avatar/${newAvatarSet}">`;
-                    };
-              };
+                };
+          }else{
+            goNext=avatarChoise;
+            goNext++;
+            newAvatarSet= avatar[goNext];
+            document.getElementById("showAvatar").innerHTML=`<img src="/static/img/avatar/${newAvatarSet}">`;
+                if(goNext>=7){
+                  goNext=0;
+                  document.getElementById("showAvatar").innerHTML=`<img src="/static/img/avatar/${newAvatarSet}">`;
+                };
+          };
+      }else {
+          randVal++;
+          newAvatarSet= avatar[randVal];
+          document.getElementById("showAvatar").innerHTML=`<img src="/static/img/avatar/${newAvatarSet}">`;
+            if(randVal>=7){
+              randVal= 0;
+              document.getElementById("showAvatar").innerHTML=`<img src="/static/img/avatar/${newAvatarSet}">`;
             };
- /// End previous button function
+      };
+    };
+/// End previous button function
+
 
             /*************** Save AVATAR Image ***************/
   function saveAvatar(){
